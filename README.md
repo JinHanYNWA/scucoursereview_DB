@@ -10,5 +10,5 @@ insertDept.py:
 Secondly I get all the departments on the same website, and insert all of them into table "main_department".
 
 
-insertCourse.py:   
+insertCourses.py:   
 Finally I create another spider to get the concrete information of every course from those ".html" files that I got in step 1. And then insert the information into table "main_course".
