@@ -8,7 +8,7 @@ cursor = db.cursor()
 for i in range(1, 375):
 	soup = BeautifulSoup(open("page" + str(i)+ ".html"), 'lxml')
 	courses = soup.find_all('tr', class_ = "odd")
-	# f = open("Content\\content" + str(i) + ".txt", 'w', encoding = 'gbk')
+	
 	for j in range(len(courses)):
 		items = courses[j].find_all('td')
 		insert_content = []
@@ -46,11 +46,9 @@ for i in range(1, 375):
 						values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);'''
 		insert_content.pop()
 		insert_content.append(1)
-		# print(insert_content)
 		try:
 			cursor.execute(sql_insert, (insert_content))
 			db.commit()
-			# print("Insert col " + str(j+1) + " successfully!")
 		except Exception as e:
 			db.rollback()
 			print(e)
